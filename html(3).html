@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Song Generator</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #6366f1;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      color: var(--muted);
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      color: var(--muted);
+      display: none;
+    }
+
+    .audio-player {
+      margin-top: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>🎵 AI Song Generator</h1>
+  <p>Type a short description or mood, and let our AI create a song for you.</p>
+
+  <div class="card">
+    <input
+      type="text"
+      id="prompt"
+      placeholder="Example: A calm lofi beat for studying..."
+    />
+    <button id="generateBtn">Generate Song</button>
+
+    <div id="status" class="status">AI is composing your track... 🎶</div>
+
+    <div class="audio-player" id="audioPlayer">
+      <h3>Here’s your generated song:</h3>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      
+      <audio controls>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+    </div>
+  </div>
+
+  <footer>© 2025 IMAGINIX.AI, All Rignts Reserved </footer>
+
+  <script>
+    const generateBtn = document.getElementById("generateBtn");
+    const statusEl = document.getElementById("status");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const promptInput = document.getElementById("prompt");
+
+    generateBtn.addEventListener("click", () => {
+      const prompt = promptInput.value.trim();
+      if (!prompt) {
+        alert("Please enter a song idea or mood!");
+        return;
+      }
+
+      statusEl.style.display = "block";
+      audioPlayer.style.display = "none";
+      statusEl.textContent = "AI is composing your track... 🎶";
+
+      // Simulate API call
+      setTimeout(() => {
+        statusEl.textContent = "Song generated successfully!";
+        audioPlayer.style.display = "flex";
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
